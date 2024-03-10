@@ -1,4 +1,6 @@
 $main-gap: 20px;
+$font-size: 18px;
+$text-color: #042c4e;
 
 * {
   margin: 0;
@@ -6,27 +8,62 @@ $main-gap: 20px;
   box-sizing: border-box;
 }
 
-ul {
-  margin-bottom: $main-gap;
-  li {
-    list-style-type: none;
-    line-height: 2;
-  }
+body {
+  font-size: $font-size;
+  line-height: 1.27rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
+    sans-serif;
+  margin: auto;
+}
+
+h1 {
+  text-align: left;
+  font-size: 2.38rem;
+  line-height: 2.38rem;
+  margin-top: 1.12rem;
+  margin-bottom: 1.12rem;
+  color: $text-color;
 }
 
 h2 {
-  margin-bottom: $main-gap;
+  text-align: left;
+  font-size: 1.77rem;
+  line-height: 2.55rem;
+  margin-top: 1.27rem;
+  margin-bottom: 1.27rem;
+  border-bottom: 1px solid #ccc;
+  color: $text-color;
+}
+
+p {
+  margin-top: 0rem;
+  margin-bottom: 1.12rem;
+}
+
+strong,
+small {
+  font-size: 1rem;
+  line-height: 1.77rem;
+}
+
+ul {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  li {
+    list-style-type: none;
+    margin: $main-gap 0;
+  }
 }
 
 .cv-main {
   max-width: 850px;
   width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height: max-content;
+  margin: $main-gap auto;
+  border: 1px solid #ccc;
   display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: 100px auto;
+  grid-template-columns: 280px auto;
+  grid-template-rows: max-content max-content;
   grid-template-areas:
     'header header'
     'personal details';
@@ -34,19 +71,14 @@ h2 {
   .cv-header {
     grid-area: header;
     padding: $main-gap;
-    text-align: center;
   }
+
   .cv-personal {
     grid-area: personal;
     padding: $main-gap;
-    background-color: blue;
-    color: #fff;
-    text-align: center;
-    font-size: 1.2rem;
 
     .cv-photo {
       width: 100%;
-      border-radius: 50%;
       margin-bottom: $main-gap;
       margin-top: $main-gap;
     }
@@ -54,6 +86,10 @@ h2 {
   .cv-details {
     padding: $main-gap;
     grid-area: details;
-    text-align: center;
+    .cv-experience {
+      display: grid;
+      grid-template-columns: 100px auto;
+      grid-template-rows: max-content;
+    }
   }
 }

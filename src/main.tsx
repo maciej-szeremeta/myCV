@@ -11,6 +11,9 @@ interface CVData {
   photo: string;
   name: string;
   lastName: string;
+  phone: string;
+  email: string;
+  github: string;
   position: string;
   experience: Experience[];
   education: string[];
@@ -18,14 +21,44 @@ interface CVData {
 
 const cvData: CVData = {
   photo: 'https://randomuser.me/api/portraits/men/72.jpg',
-  name: 'Maciej',
-  lastName: 'Szeremeta',
+  name: 'Jan',
+  lastName: 'Kowalski',
   position: 'Developer',
+  phone: '555 666 777',
+  email: 'jan@kowalski.dev',
+  github: 'https://github.com/kowalski',
   experience: [
-    { year: 2009, description: 'Loperm ipsum' },
-    { year: 2010, description: 'Dolor sit amet' },
+    {
+      year: 2009,
+      description: 'Zdobycie podstaw języka JavaScript oraz manipulacji DOM.',
+    },
+    {
+      year: 2011,
+      description:
+        'Poszerzenie umiejętności o zaawansowane techniki JavaScript oraz praca z asynchronicznymi operacjami.',
+    },
+    {
+      year: 2013,
+      description:
+        'Specjalizacja w frameworkach front-endowych, takich jak React, Angular lub Vue.js.',
+    },
+    {
+      year: 2015,
+      description:
+        'Zaawansowane technologie front-endowe i optymalizacja wydajności aplikacji.',
+    },
+    {
+      year: 2022,
+      description:
+        'Mentoring młodszych programistów oraz udział w konferencjach i wydarzeniach branżowych.',
+    },
   ],
-  education: ['Lorem ipsum', 'Dolor sit amet', 'Ala ma kota'],
+  education: [
+    'Samodzielne studiowanie języka JavaScript, w tym: Podstawy składni języka JavaScript, Manipulacja DOM, Obsługa zdarzeń, Programowanie obiektowe w JavaScript',
+    'Udział w kursach online lub szkoleniach dotyczących zaawansowanych technik i narzędzi używanych w ekosystemie JavaScript, takich jak: Frameworki front-endowe (np. React, Angular, Vue.js).',
+    'Praktyczne doświadczenie poprzez realizację projektów, udział w hackathonach lub pracy nad otwartym oprogramowaniem, w celu zdobycia praktycznej wiedzy i umiejętności w rozwiązywaniu rzeczywistych problemów związanych z programowaniem w JavaScript.',
+    'Ciągłe poszerzanie wiedzy poprzez czytanie dokumentacji, artykułów branżowych, uczestnictwo w warsztatach, konferencjach oraz aktywność w społeczności programistycznej online, aby być na bieżąco z najnowszymi trendami i technologiami w świecie JavaScript.',
+  ],
 };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -33,35 +66,45 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <main className="cv-main">
       <header className="cv-header">
         <h1>
-          CV {cvData.name}
-          {cvData.lastName}
+          {cvData.name} {cvData.lastName}
         </h1>
+        <p>{cvData.position}</p>
       </header>
       <aside className="cv-personal">
-        <h2>Personal data</h2>
         <img
           className="cv-photo"
           src={cvData.photo}
           alt={`${cvData.name} ${cvData.lastName} profile photo`}
         />
+        <h2>Personal data</h2>
         <p>
-          {cvData.name} {cvData.lastName}
+          Email: <small>{cvData.email}</small>
         </p>
-        <small>{cvData.position}</small>
+        <p>
+          Phone: <small>{cvData.phone}</small>
+        </p>
+        <p>
+          Github <small>{cvData.github}</small>
+        </p>
       </aside>
       <section className="cv-details">
         <h2>Experience</h2>
         <ul>
           {cvData.experience.map((experience) => (
-            <li key={experience.year}>
-              <strong>{experience.year}</strong> - {experience.description}
+            <li
+              key={experience.year}
+              className="cv-experience">
+              <strong>{experience.year}</strong>
+              <small>{experience.description}</small>
             </li>
           ))}
         </ul>
         <h2>Education</h2>
         <ul>
           {cvData.education.map((education, index) => (
-            <li key={index}>{education}</li>
+            <li key={index}>
+              <small>{education}</small>
+            </li>
           ))}
         </ul>
       </section>

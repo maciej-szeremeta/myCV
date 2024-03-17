@@ -1,0 +1,11 @@
+@import '../variables.scss';
+.cv-personal {
+  grid-area: personal;
+  padding: $main-gap;
+
+  .cv-photo {
+    width: 100%;
+    margin-bottom: $main-gap;
+    margin-top: $main-gap;
+  }
+}

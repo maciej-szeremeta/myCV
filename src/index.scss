@@ -1,6 +1,4 @@
-$main-gap: 20px;
-$font-size: 18px;
-$text-color: #042c4e;
+@import './variables.scss';
 
 * {
   margin: 0;
@@ -52,44 +50,5 @@ ul {
   li {
     list-style-type: none;
     margin: $main-gap 0;
-  }
-}
-
-.cv-main {
-  max-width: 850px;
-  width: 100%;
-  height: max-content;
-  margin: $main-gap auto;
-  border: 1px solid #ccc;
-  display: grid;
-  grid-template-columns: 280px auto;
-  grid-template-rows: max-content max-content;
-  grid-template-areas:
-    'header header'
-    'personal details';
-
-  .cv-header {
-    grid-area: header;
-    padding: $main-gap;
-  }
-
-  .cv-personal {
-    grid-area: personal;
-    padding: $main-gap;
-
-    .cv-photo {
-      width: 100%;
-      margin-bottom: $main-gap;
-      margin-top: $main-gap;
-    }
-  }
-  .cv-details {
-    padding: $main-gap;
-    grid-area: details;
-    .cv-experience {
-      display: grid;
-      grid-template-columns: 100px auto;
-      grid-template-rows: max-content;
-    }
   }
 }

@@ -1,0 +1,6 @@
+@import '../variables.scss';
+
+.cv-header {
+  grid-area: header;
+  padding: $main-gap;
+}

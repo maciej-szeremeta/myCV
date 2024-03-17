@@ -1,0 +1,11 @@
+@import '../variables.scss';
+
+.cv-details {
+  padding: $main-gap;
+  grid-area: details;
+  .cv-experience {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: max-content;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../variables.scss';
+
+.cv-main {
+  max-width: 850px;
+  width: 100%;
+  height: max-content;
+  margin: $main-gap auto;
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 280px auto;
+  grid-template-rows: max-content max-content;
+  grid-template-areas:
+    'header header'
+    'personal details';
+  }

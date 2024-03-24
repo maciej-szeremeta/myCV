@@ -1,13 +1,17 @@
-import { Props } from '../types/cv';
+import { CVPersonal } from '../types/cv';
 import './Header.scss';
 
-const Header = ({ cvData }: Props) => {
+type Props = {
+  data: CVPersonal;
+};
+
+const Header = ({ data: { name, lastName, position } }: Props) => {
   return (
     <header className="cv-header">
       <h1>
-        {cvData.name} {cvData.lastName}
+        {name} {lastName}
       </h1>
-      <p>{cvData.position}</p>
+      <p>{position}</p>
     </header>
   );
 };

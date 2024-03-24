@@ -1,12 +1,16 @@
-import { Props } from '../types/cv';
+import { CVDetails } from '../types/cv';
 import './Details.scss';
 
-const Details = ({ cvData }: Props) => {
+type Props = {
+  data: CVDetails;
+};
+
+const Details = ({ data: { experience, education } }: Props) => {
   return (
     <section className="cv-details">
       <h2>Experience</h2>
       <ul>
-        {cvData.experience.map((experience) => (
+        {experience.map((experience) => (
           <li
             key={experience.year}
             className="cv-experience">
@@ -17,7 +21,7 @@ const Details = ({ cvData }: Props) => {
       </ul>
       <h2>Education</h2>
       <ul>
-        {cvData.education.map((education, index) => (
+        {education.map((education, index) => (
           <li key={index}>
             <small>{education}</small>
           </li>

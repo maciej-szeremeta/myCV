@@ -1,23 +1,29 @@
-import { Props } from '../types/cv';
+import { CVPersonal } from '../types/cv';
 import './Personal.scss';
 
-const Personal = ({ cvData }: Props) => {
+type Props = {
+  data: CVPersonal;
+};
+
+const Personal = ({
+  data: { photo, name, lastName, email, phone, github },
+}: Props) => {
   return (
     <aside className="cv-personal">
       <img
         className="cv-photo"
-        src={cvData.photo}
-        alt={`${cvData.name} ${cvData.lastName} profile photo`}
+        src={photo}
+        alt={`${name} ${lastName} profile photo`}
       />
       <h2>Personal data</h2>
       <p>
-        Email: <small>{cvData.email}</small>
+        Email: <small>{email}</small>
       </p>
       <p>
-        Phone: <small>{cvData.phone}</small>
+        Phone: <small>{phone}</small>
       </p>
       <p>
-        Github <small>{cvData.github}</small>
+        Github <small>{github}</small>
       </p>
     </aside>
   );
